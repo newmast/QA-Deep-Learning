@@ -1,0 +1,3 @@
+trainingInput:
+  scaleTier: BASIC_GPU
+  runtime_version: "1.8"

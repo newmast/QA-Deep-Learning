@@ -1,0 +1,17 @@
+export JOB_NAME="job41"
+export BUCKET_NAME=squad-bucket
+export CLOUD_CONFIG=training/cloudml-gpu.yaml
+export JOB_DIR=gs://squad-bucket/jobs/$JOB_NAME
+export MODULE=training.main
+export PACKAGE_PATH=./training
+export REGION=us-east1
+export RUNTIME=1.8
+export TRAIN_FILE=gs://data/train-v1.1.json
+
+gcloud ml-engine jobs submit training $JOB_NAME \
+  --job-dir $JOB_DIR \
+  --runtime-version $RUNTIME \
+  --module-name $MODULE \
+  --package-path $PACKAGE_PATH \
+  --region $REGION \
+  --config=$CLOUD_CONFIG
